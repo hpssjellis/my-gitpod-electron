@@ -32,8 +32,8 @@ USER root
 
 WORKDIR /home/gitpod/.android
 
-RUN chmod -R 775 /home/gitpod                                                              \
-    && chown -R gitpod:gitpod /home/gitpod                              
+RUN chmod -R 4775 /home/gitpod                                                              \
+    && chown -R root:gitpod /home/gitpod                              
 
 
 
