@@ -27,8 +27,19 @@ RUN mkdir -p /home/gitpod/rocksetta                                             
     
 
 
+# Give back control
+USER root
+
+WORKDIR /home/gitpod/.android
+
+RUN chmod -R 775 /home/gitpod                                                              \
+    && chown -R gitpod:gitpod /home/gitpod                              
 
 
+
+
+
+USER gitpod
 
 
 RUN  echo "ls -ls /home/gitpod"       >> /home/gitpod/rocksetta/logs/mylogs.txt             \
