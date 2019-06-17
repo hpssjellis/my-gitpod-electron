@@ -15,11 +15,6 @@ tasks:
               chmod +x a01-electron-create.sh                                                                          &&   
               
               
-       
-              echo "Set change ownership"              &>>  /workspace/my-gitpod-electron/logs/gitpod-install-log.txt  &&           
-              chmod -R 775 /home/gitpod                                                                                &&
-              chown -R gitpod:gitpod /home/gitpod                                                                      &&
-              
               
 
               echo "Starting Apache"                   &>>  /workspace/my-gitpod-electron/logs/gitpod-install-log.txt  &&   
