@@ -7,7 +7,8 @@ RUN apt-get update \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev        \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev      \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl      \
-                       gperf bison python-dbusmock openjdk-8-jre               \
+                       gperf bison python-dbusmock openjdk-8-jre               \               
+    && sysctl kernel.unprivileged_userns_clone=1 \
     && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 
 
@@ -23,7 +24,6 @@ RUN mkdir -p /home/gitpod/rocksetta                                             
     && echo "Installation start, made some folders in /home/gitpod" >> /home/gitpod/rocksetta/logs/mylogs.txt  \
     && echo "Try electron" >> /home/gitpod/rocksetta/logs/mylogs.txt                                           \
     && npm install -g  electron                                                                                \
-    && sysctl kernel.unprivileged_userns_clone=1 \
     && echo "Back to root to install the Android sdk" >> /home/gitpod/rocksetta/logs/mylogs.txt                
     
 
@@ -33,7 +33,7 @@ USER root
 
 WORKDIR /home/gitpod/.android
 
-RUN chmod -R 4775 /home/gitpod                                                              \
+RUN chmod -R 775 /home/gitpod                                                              \
     && chown -R gitpod:gitpod /home/gitpod                              
 
 
