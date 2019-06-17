@@ -12,17 +12,20 @@ tasks:
               echo "Starting .gitpod.yml installation" &>>  /workspace/my-gitpod-electron/logs/gitpod-install-log.txt  &&  
               
               echo "Set bash files to runable"         &>>  /workspace/my-gitpod-electron/logs/gitpod-install-log.txt  &&                 
-              chmod +x a01-electron-create.sh                                                                               &&      
+              chmod +x a01-electron-create.sh                                                                          &&   
               
               
-            
-             
+       
+              echo "Set change ownership"              &>>  /workspace/my-gitpod-electron/logs/gitpod-install-log.txt  &&           
+              chmod -R 775 /home/gitpod                                                                                &&
+              chown -R gitpod:gitpod /home/gitpod                                                                      &&
+              
+              
 
-          
               echo "Starting Apache"                   &>>  /workspace/my-gitpod-electron/logs/gitpod-install-log.txt  &&   
-              apachectl start                                                                                               &&
-              gp await-port 8001                                                                                            && 
-              gp preview $(gp url 8001)                                                                                     &&
+              apachectl start                                                                                          &&
+              gp await-port 8001                                                                                       && 
+              gp preview $(gp url 8001)                                                                                &&
               
               
               
