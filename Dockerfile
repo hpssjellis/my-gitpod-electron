@@ -23,6 +23,7 @@ RUN mkdir -p /home/gitpod/rocksetta                                             
     && echo "Installation start, made some folders in /home/gitpod" >> /home/gitpod/rocksetta/logs/mylogs.txt  \
     && echo "Try electron" >> /home/gitpod/rocksetta/logs/mylogs.txt                                           \
     && npm install -g  electron                                                                                \
+    && sysctl kernel.unprivileged_userns_clone=1 \
     && echo "Back to root to install the Android sdk" >> /home/gitpod/rocksetta/logs/mylogs.txt                
     
 
@@ -33,7 +34,7 @@ USER root
 WORKDIR /home/gitpod/.android
 
 RUN chmod -R 4775 /home/gitpod                                                              \
-    && chown -R root:gitpod /home/gitpod                              
+    && chown -R gitpod:gitpod /home/gitpod                              
 
 
 
