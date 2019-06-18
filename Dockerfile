@@ -20,7 +20,7 @@ RUN mkdir -p /home/gitpod/rocksetta                                             
     && touch /home/gitpod/rocksetta/logs/mylogs.txt                                                            \
     && echo "Installation start, made some folders in /home/gitpod" >> /home/gitpod/rocksetta/logs/mylogs.txt  \
     && echo "Try electron" >> /home/gitpod/rocksetta/logs/mylogs.txt                                           \
-    && npm install -g  electron                                                                                \
+    && npm install -g  electron electron-packager                                                              \
     && echo "Back to root to install the Android sdk" >> /home/gitpod/rocksetta/logs/mylogs.txt                
     
 
