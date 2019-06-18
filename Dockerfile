@@ -17,8 +17,6 @@ USER gitpod
   
 RUN mkdir -p /home/gitpod/rocksetta                                                                            \ 
     && mkdir -p /home/gitpod/rocksetta/logs                                                                    \ 
-    && mkdir -p /home/gitpod/.android                                                                          \
-    && touch /home/gitpod/.android/repositories.cfg                                                            \
     && touch /home/gitpod/rocksetta/logs/mylogs.txt                                                            \
     && echo "Installation start, made some folders in /home/gitpod" >> /home/gitpod/rocksetta/logs/mylogs.txt  \
     && echo "Try electron" >> /home/gitpod/rocksetta/logs/mylogs.txt                                           \
@@ -28,18 +26,18 @@ RUN mkdir -p /home/gitpod/rocksetta                                             
 
 
 # Give back control
-USER root
+#USER root
 
-WORKDIR /home/gitpod/.android
+#WORKDIR /home/gitpod/.android
 
-RUN chmod -R 775 /home/gitpod                 \
-    && chown -R gitpod:gitpod /home/gitpod                              
-
-
+#RUN chmod -R 775 /home/gitpod                 \
+#    && chown -R gitpod:gitpod /home/gitpod                              
 
 
 
-USER gitpod
+
+
+#USER gitpod
 
 
 RUN  echo "ls -ls /home/gitpod"       >> /home/gitpod/rocksetta/logs/mylogs.txt             \
